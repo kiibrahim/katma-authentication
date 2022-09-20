@@ -10,7 +10,7 @@
             <input type="password" v-model="confirmpassword" placeholder="re-type password" required/><br/><br/>
             <input type="submit" value="Register" id="submit"/>
         </form>
-
+        {{updates}}
     </div>
 </template>
 <script>
@@ -24,12 +24,29 @@
                 firstname: '',
                 lastname:'',
                 password: '',
-                confirmpassword: ''
+                confirmpassword: '',
+
+                updates: ''
             }
         },
         methods:{
             postData(){
-                
+                let newUser = {
+                    email: this.email,
+                    userId: this.username,
+                    firstName: this.firstname,
+                    lastName: this.lastname,
+                    password: this.password
+                }
+                if(this.password != this.confirmpassword){
+                    alert("Passwords are not same!")
+                }
+                axios.post('http://localhost:9000/api/registration', newUser).then(res=>{
+                       //this.updates=("Successful")
+                       this.$router.push('/login')
+                }, err=>{
+                  this.updates= (err.response.data)
+                    })
 
             }
         }

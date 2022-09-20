@@ -6,20 +6,36 @@
             <input type="password" v-model="password" required/>
             <input type="submit" value="Register"/>
         </form>
-
+        {{updates}}
     </div>
 </template>
 <script>
+    import axios from 'axios'
     export default{
         name: "Home",
         data(){
             return{
                 username: '',
                 password: '',
+
+                updates:''
             }
         },
         methods:{
             login(){
+                let user = {
+                    userId: this.username,
+                    password: this.password
+                }
+                axios.post('http://localhost:9000/api/login',user).then(res=>{
+                    if(res.status === 200){
+                        localStorage.setItem('token',res.data)
+                        this.$router.push('/home')
+                       // console.log(res)
+                    }
+                },err=>{
+                   this.updates=(err.response.data)
+                })
 
             }
         }
