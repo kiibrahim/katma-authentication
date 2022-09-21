@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.4', {useNewUrlParser: true},()=>{
+mongoose.connect('mongodb+srv://ibu:Cy5haYMXzqmSXn1V@cluster0.4ft9nth.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true},()=>{
     console.log("DB Connected!")
 })
 

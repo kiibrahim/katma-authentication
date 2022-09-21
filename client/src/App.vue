@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Registration</h1>
+    <h1>Welcome</h1>
     <div id="buttons">
     <router-link to="registration" active-class="active" tag="button">
       <div class="link_container">

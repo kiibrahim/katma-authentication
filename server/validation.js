@@ -16,6 +16,15 @@ const loginValidation = (data)=>{
 })
 return loginSchema.validate(data)
 }
+const verifyValidation = (data)=>{
+    const verifySchema = Joi.object({
+        email: Joi.string().min(6).required().email(),
+        token:Joi.string()
+   
+})
+return verifySchema.validate(data)
+}
 
 module.exports.registrationValidation = registrationValidation
 module.exports.loginValidation = loginValidation
+module.exports.verifyValidation = verifyValidation

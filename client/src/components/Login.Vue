@@ -2,9 +2,9 @@
     <div id="home">
         <h1>Log In</h1>
         <form @submit="login">
-            <input type="test" v-model="username" required/>
-            <input type="password" v-model="password" required/>
-            <input type="submit" value="Register"/>
+            <input type="test" placeholder="userId" v-model="username" required/>
+            <input type="password" placeholder="password" v-model="password" required/>
+            <input type="submit" value="Login"/>
         </form>
         {{updates}}
     </div>
